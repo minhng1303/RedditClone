@@ -1,5 +1,6 @@
 package com.hanu.reddit.controller;
 
+import com.hanu.reddit.dto.AuthenticationResponse;
 import com.hanu.reddit.dto.LoginRequest;
 import com.hanu.reddit.dto.RegisterRequest;
 import com.hanu.reddit.exception.SpringRedditException;
@@ -29,7 +30,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody LoginRequest loginRequest) {
-        authService.login(loginRequest);
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) throws Exception {
+        return authService.login(loginRequest);
     }
 }
